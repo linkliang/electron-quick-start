@@ -31,14 +31,14 @@
       "output": "release"
     }
   },
-  "publish": {
-    "provider": "s3",
-    "bucket": "qc-electron-test"
-  },
   "win": {
     "target": "NSIS",
     "icon": "build/icon.png",
+    "publish": {
+    "provider": "s3",
+    "bucket": "qc-electron-test",
     "path": "/win"
+    }
   },
   "mac": {
     "target": [
@@ -46,12 +46,20 @@
       "zip"
     ],
     "icon": "build/icon.png",
+    "publish": {
+    "provider": "s3",
+    "bucket": "qc-electron-test",
     "path": "/mac"
+    }
   },
   "linux": {
     "target": "AppImage",
     "icon": "build/icon.png",
+    "publish": {
+    "provider": "s3",
+    "bucket": "qc-electron-test",
     "path": "/linux"
+    }
   },
   "dependencies": {
     "electron-updater": "^4.0.6"
