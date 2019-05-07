@@ -1,12 +1,16 @@
 {
   "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "version": "0.0.0",
+  "description": "developing...",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "build",
+    "publish-win": "build --win --publish always",
+    "publish-mac": "build --mac --publish always",
+    "publish-linux": "build --linux --publish always",
+    "publish": "build --win --mac --linux --publish always",
   },
-  "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
     "Electron",
     "quick",
@@ -14,9 +18,43 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "QuantConnect",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^5.0.0"
+    "electron": "^5.0.0",
+    "electron-builder": "^20.39.0"
+  },
+  "build": {
+    "appId": "com.quantconnect.leanux",
+    "copyright": "Copyright © 2019 QuantConnect",
+    "directories": {
+      "output": "release"
+    }
+  },
+  "publish": {
+    "provider": "s3",
+    "bucket": "qc-electron-test"
+  },
+  "win": {
+    "target": "NSIS",
+    "icon": "build/icon.png",
+    "path": "/win"
+  },
+  "mac": {
+    "target": [
+      "dmg",
+      "zip"
+    ],
+    "icon": "build/icon.png",
+    "path": "/mac"
+  },
+  "linux": {
+    "target": "AppImage",
+    "icon": "build/icon.png",
+    "path": "/linux"
+  },
+  "dependencies": {
+    "electron-updater": "^4.0.6"
   }
+}
 }
