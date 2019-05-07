@@ -32,6 +32,20 @@ function createWindow () {
   })
 }
 
+// Tray icon&Menu
+let tray = null
+app.on('ready', () => {
+  tray = new Tray('build/icon.png')
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' },
+    { label: 'Item3', type: 'radio', checked: true },
+    { label: 'Item4', type: 'radio' }
+  ])
+  tray.setToolTip('Lean')
+  tray.setContextMenu(contextMenu)
+})
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
