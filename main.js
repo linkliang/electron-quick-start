@@ -32,6 +32,7 @@ function createWindow () {
 }
 
 // Tray icon&Menu
+/*
 let tray = null
 app.on('ready', () => {
   tray = new Tray('image/tray.png')
@@ -46,6 +47,7 @@ app.on('ready', () => {
   tray.setToolTip('Lean')
   tray.setContextMenu(contextMenu)
 })
+*/
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

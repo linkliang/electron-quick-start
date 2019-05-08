@@ -1,7 +1,7 @@
 {
   "name": "electron-quick-start",
-  "version": "0.0.2",
-  "description": "developing...",
+  "version": "0.0.1",
+  "description": "packaging&auto-update",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -30,42 +30,30 @@
     "directories": {
       "output": "release"
     },
-    "files":[
-        "build/tray.png"
-    ],
-    "win": {
-      "target": "NSIS",
-      "icon": "build/icon.png",
-      "publish": {
-        "provider": "s3",
-        "bucket": "qc-electron-test",
-        "acl": "public-read",
-        "path": "/win"
-      }
-    },
-    "mac": {
-      "target": [
-        "dmg",
-        "zip"
-      ],
-      "icon": "build/icon.png",
-      "publish": {
-        "provider": "s3",
-        "bucket": "qc-electron-test",
-        "acl": "public-read",
-        "path": "/mac"
-      }
-    },
-    "linux": {
-      "target": "AppImage",
-      "icon": "build/icon.png",
-      "publish": {
-        "provider": "s3",
-        "bucket": "qc-electron-test",
-        "acl": "public-read",
-        "path": "/linux"
-      }
+    "publish": {
+      "provider": "s3",
+      "bucket": "skylight.quantconnect.com",
+      "acl": "public-read",
+      "region": "us-east-1"
     }
+  },
+  "win": {
+    "target": "NSIS",
+    "icon": "build/icon.png",
+    "path": "/win"
+  },
+  "mac": {
+    "target": [
+      "dmg",
+      "zip"
+    ],
+    "icon": "build/icon.png",
+    "path": "/mac"
+  },
+  "linux": {
+    "target": "AppImage",
+    "icon": "build/icon.png",
+    "path": "/linux"
   },
   "dependencies": {
     "electron-updater": "^4.0.6"
