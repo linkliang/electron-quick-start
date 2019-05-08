@@ -34,25 +34,25 @@
       "provider": "s3",
       "bucket": "qc-electron-test",
       "acl": "public-read"
-    },
-    "win": {
-      "target": "NSIS",
-      "icon": "build/icon.png",
-      "path": "/win"
-    },
-    "mac": {
-      "target": [
-        "dmg",
-        "zip"
-      ],
-      "icon": "build/icon.png",
-      "path": "/mac"
-    },
-    "linux": {
-      "target": "AppImage",
-      "icon": "build/icon.png",
-      "path": "/linux"
     }
+  },
+  "win": {
+    "target": "NSIS",
+    "icon": "build/icon.png",
+    "path": "/win"
+  },
+  "mac": {
+    "target": [
+      "dmg",
+      "zip"
+    ],
+    "icon": "build/icon.png",
+    "path": "/mac"
+  },
+  "linux": {
+    "target": "AppImage",
+    "icon": "build/icon.png",
+    "path": "/linux"
   },
   "dependencies": {
     "electron-updater": "^4.0.6"
