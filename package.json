@@ -36,18 +36,21 @@
       "acl": "public-read",
       "win": {
         "target": "NSIS",
-        "icon": "build/icon.png"
+        "icon": "build/icon.png",
+        "path": "/win"
       },
       "mac": {
         "target": [
           "dmg",
           "zip"
         ],
-        "icon": "build/icon.png"
+        "icon": "build/icon.png",
+        "path": "/mac"
       },
       "linux": {
         "target": "AppImage",
-        "icon": "build/icon.png"
+        "icon": "build/icon.png",
+        "path": "/linux"
       }
     }
   },
