@@ -52,7 +52,7 @@
       "target": "AppImage",
       "icon": "build/icon.png",
       "path": "/linux"
-    },
+    }
   },
   "dependencies": {
     "electron-updater": "^4.0.6"
