@@ -29,17 +29,15 @@
     "copyright": "Copyright © 2019 QuantConnect",
     "directories": {
       "output": "release"
-    },
-    "publish": {
-      "provider": "s3",
-      "bucket": "qc-electron-test",
-      "acl": "public-read"
     }
   },
   "win": {
     "target": "NSIS",
     "icon": "build/icon.png",
     "publish": {
+      "provider": "s3",
+      "bucket": "qc-electron-test",
+      "acl": "public-read",
       "path": "/win"
     }
   },
@@ -50,6 +48,9 @@
     ],
     "icon": "build/icon.png",
     "publish": {
+      "provider": "s3",
+      "bucket": "qc-electron-test",
+      "acl": "public-read",
       "path": "/mac"
     }
   },
@@ -57,6 +58,9 @@
     "target": "AppImage",
     "icon": "build/icon.png",
     "publish": {
+      "provider": "s3",
+      "bucket": "qc-electron-test",
+      "acl": "public-read",
       "path": "/linux"
     }
   },
