@@ -34,7 +34,7 @@ function createWindow () {
 // Tray icon&Menu
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('build/icon.png')
+  tray = new Tray('image/tray.png')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Synchronize'},
     { label: 'Check for Updates'},

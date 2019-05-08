@@ -28,7 +28,10 @@
     "appId": "com.quantconnect.leanux",
     "copyright": "Copyright © 2019 QuantConnect",
     "directories": {
-      "output": "release"
+      "output": "release",
+      "files":[
+        "build/tray.png"
+      ]
     },
     "win": {
       "target": "NSIS",
