@@ -28,11 +28,11 @@
     "appId": "com.quantconnect.leanux",
     "copyright": "Copyright © 2019 QuantConnect",
     "directories": {
-      "files":[
-        "build/tray.png"
-      ],
       "output": "release"
     },
+    "files":[
+        "build/tray.png"
+    ],
     "win": {
       "target": "NSIS",
       "icon": "build/icon.png",
