@@ -1,7 +1,6 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, Tray} = require('electron')
+const {app, Menu, BrowserWindow, Tray} = require('electron')
 const {autoUpdater} = require("electron-updater")
-const log = require('electron-log')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -37,10 +36,12 @@ let tray = null
 app.on('ready', () => {
   tray = new Tray('build/icon.png')
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Item1', type: 'radio' },
-    { label: 'Item2', type: 'radio' },
-    { label: 'Item3', type: 'radio', checked: true },
-    { label: 'Item4', type: 'radio' }
+    { label: 'Synchronize'},
+    { label: 'Check for Updates'},
+    { label: 'Preferences'},
+    { label: 'Quit', click: () => {
+      app.quit()
+    }}
   ])
   tray.setToolTip('Lean')
   tray.setContextMenu(contextMenu)
@@ -51,7 +52,7 @@ app.on('ready', () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', function(){
   createWindow()
-  autoUpdater.checkForUpdatesAndNotify()
+  autoUpdater.checkForUpdates()
 })
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
