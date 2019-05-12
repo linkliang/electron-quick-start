@@ -1,0 +1,5 @@
+<div data-bind="style: { color: colors()[numberOfClicks()%4] }">
+     Counter: <span data-bind='text: numberOfClicks'>&nbsp;</span> times
+   <button data-bind='click: countClick'>Click me</button>
+   <button data-bind='click: resetClicks'>Reset clicks</button>
+</div>
