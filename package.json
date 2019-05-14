@@ -33,22 +33,22 @@
       "output": "release"
     },
     "win": {
-    "target": "NSIS",
-    "icon": "build/icon.png",
-    "publish": {
-      "provider": "s3",
-      "bucket": "qc-electron-test",
-      "acl": "public-read",
-      "region": "us-west-1",
-      "path": "/win"
-    }
+      "target": "NSIS",
+      "icon": "images/icon.png",
+      "publish": {
+        "provider": "s3",
+        "bucket": "qc-electron-test",
+        "acl": "public-read",
+        "region": "us-west-1",
+        "path": "/win"
+      }
     },
     "mac": {
       "target": [
         "dmg",
         "zip"
       ],
-      "icon": "build/icon.png",
+      "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
         "bucket": "skylight.quantconnect.com",
@@ -59,7 +59,7 @@
     },
     "linux": {
       "target": "AppImage",
-      "icon": "build/icon.png",
+      "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
         "bucket": "qc-electron-test",
