@@ -1,6 +1,6 @@
 import ko from 'knockout'
 
-import viewModel from './files-viewmodel.ts'
+import {FilesViewModel as viewModel} from './files-viewmodel.ts'
 
 // read template as string
 import template from "raw-loader!./files-template.html"

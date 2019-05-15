@@ -2,21 +2,25 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th data-bind="click:function(){ SetSorting('rowid')}" style="cursor: pointer">#</th>
+        <th>#</th>
         <th>File name</th>
-        <th>Size</th>
-        <th>Modified</th>
-        <th>Status</th>
+        <th>File size</th>
+        <th>Last Modified</th>
       </tr>
     </thead>
-    <tbody data-bind="foreach: VisibleRows">
-      <tr>
+    <tbody data-bind="foreach: filelist">
+      <tr data-bind="click: $parent.Select">
         <td data-bind="text: $index"></td>
-        <td data-bind="text: filename"></td>
-        <td data-bind="text: size"></td>
-        <td data-bind="text: modifiedTime"></td>
-        <td data-bind="text: status"></td>
+        <td data-bind="text: fileName"></td>
+        <td data-bind="text: fileSize"></td>
+        <td data-bind="text: fileLastModified"></td>
       </tr>
     </tbody>
   </table>
+  <button data-bind='click: Reload'>Refresh</button>
+
+  <p>File Name: <input data-bind="textInput: newFileName" /></p>
+  <p>File content: <input data-bind="textInput: newFileText" /></p>
+  <button data-bind='click: CreateNewFile'>Create New File</button>
+  <button data-bind='click: DeleteFile'>Delete File</button>
 </div>
