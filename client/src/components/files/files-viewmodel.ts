@@ -9,7 +9,6 @@ export class FilesViewModel {
   public newFileName: KnockoutObservable<string>;
   public newFileText: KnockoutObservable<string>;
   public selectedFile: KnockoutObservableArray<FileModel>;
-  public self: FilesViewModel;
   public constructor(params) {
 	let homedir = require('os').homedir();
   	let location = params[0]==null ? path.join(homedir,'QuantConnect') : params[0];
@@ -18,15 +17,13 @@ export class FilesViewModel {
   	this.newFileName = ko.observable("name");
   	this.newFileText = ko.observable("content");
   	this.selectedFile = ko.observableArray();
-  	this.self = this;
   }
 
   public Select(file:FileModel){
   	console.log("want to select: "+file.fileName);
-  	if (self.fc==null) console.log("fc is null");
-  	if (self.selectedFile==null) console.log("selectedFile is null");
-  	self.selectedFile.push(file);
-  	console.log("selected: "+self.selectedFile());
+  	
+  	this.selectedFile.push(file);
+  	console.log("selected: "+this.selectedFile());
   }
 
   public DeleteFile(){
