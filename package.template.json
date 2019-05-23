@@ -27,6 +27,7 @@
   "build": {
     "appId": "com.quantconnect.leanux",
     "copyright": "Copyright © 2019 QuantConnect",
+    "productName": "Skylight_v${version}",
     "directories": {
       "output": "release"
     },
