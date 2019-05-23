@@ -3,10 +3,7 @@
   "version": "0.0.4",
   "description": "packaging&auto-update",
   "main": "main.js",
-  "config": {
-    "branch" : "master"
-  },
-  "scripts": {
+    "scripts": {
     "start": "electron .",
     "build": "build",
     "publish-win": "build --win --publish always",
@@ -41,7 +38,7 @@
       "bucket": "skylight.quantconnect.com",
       "acl": "public-read",
       "region": "us-east-1",
-      "path": "main/win"
+      "path": "{{branch_name}}/win"
     }
     },
     "mac": {
@@ -55,7 +52,7 @@
         "bucket": "skylight.quantconnect.com",
         "acl": "public-read",
         "region": "us-east-1",
-        "path": "main/mac"
+        "path": "{{branch_name}}/mac"
       }
     },
     "linux": {
@@ -66,7 +63,7 @@
         "bucket": "skylight.quantconnect.com",
         "acl": "public-read",
         "region": "us-east-1",
-        "path": "main/linux"
+        "path": "{{branch_name}}/linux"
       }
     }
   },
