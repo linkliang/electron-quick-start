@@ -12,5 +12,5 @@ with open('package.json', 'w') as file:
     file.write(data)
     file.close()
 
-build_command = 'npm run start'
+build_command = 'npm run publish'
 os.system(build_command)
