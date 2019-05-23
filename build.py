@@ -3,7 +3,7 @@ import os
 
 branch = sys.argv[1]
 
-git_pull_command = 'git pull branch'
+git_pull_command = 'git pull origin '+branch
 os.system(git_pull_command)
 
 with open('package.json', 'r') as file:
