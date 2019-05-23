@@ -6,7 +6,7 @@ branch = sys.argv[1]
 git_pull_command = 'git pull origin '+branch
 os.system(git_pull_command)
 
-with open('package.json', 'r') as file:
+with open('package.template.json', 'r') as file:
     data = file.read().replace('{{branch_name}}', branch)
 with open('package.json', 'w') as file:
     file.write(data)
