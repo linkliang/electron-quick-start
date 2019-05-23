@@ -1,13 +1,13 @@
 import * as ko from 'knockout'
-import {LocalFilesApi} from '../../controllers/LocalFilesApi'
+import {FileSyncer} from '../../controllers/FileSyncer'
 
 export class FileSyncViewModel {
-  public localFilesApi: LocalFilesApi;
+  public fileSyncApi: FileSyncer;
   constructor() {
-  	this.localFilesApi = new LocalFilesApi("74665", "3000ca1bdf8d9441ae20833b9a5df246");
+  	this.fileSyncApi = new FileSyncer("74665", "3000ca1bdf8d9441ae20833b9a5df246");
 	}
 
   public SyncRead(){
-    this.localFilesApi.Sync();
+    this.fileSyncApi.Sync();
   }
 }

@@ -1,8 +1,17 @@
+/*
+ * QUANTCONNECT.COM - Democratizing Finance, Empowering Individuals.
+ * Skylight Electron Application V1.0.Copyright 2019 QuantConnect Corporation.
+*/
+
 const path = require('path');
 const webpack = require("webpack");
 
 module.exports = {
   entry: './src/index.js',
+  target: 'node',
+  node: {
+    fs: 'empty'
+  },
   output: {
     filename: 'app.js',
     publicPath: '/build/',
@@ -67,6 +76,5 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
-  },
-  target: 'node'
+  }
 };

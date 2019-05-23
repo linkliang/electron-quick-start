@@ -6,6 +6,7 @@ import * as path from 'path'
 export class FilesViewModel {
   public filelist: KnockoutObservableArray<FileModel>;
   public fc: FilesController;
+  public projectId: KnockoutObservable<string>;
   public newFileName: KnockoutObservable<string>;
   public newFileText: KnockoutObservable<string>;
   public selectedFile: KnockoutObservableArray<FileModel>;
@@ -16,6 +17,7 @@ export class FilesViewModel {
   	this.filelist = ko.observableArray(this.fc.getFileList());
   	this.newFileName = ko.observable("name");
   	this.newFileText = ko.observable("content");
+    this.projectId = ko.observable("default");
   	this.selectedFile = ko.observableArray();
   }
 
@@ -28,12 +30,12 @@ export class FilesViewModel {
 
   public DeleteFile(){
   	console.log("want to delete: "+ this.selectedFile());
-  	this.fc.deleteFile(this.selectedFile());
+  	this.fc.deleteFile(this.selectedFile(), this.projectId());
   	this.Reload();
   }
 
   public CreateNewFile(){
-  	this.fc.createNewFile(this.newFileName(),this.newFileText());
+  	this.fc.createNewFile(this.projectId(),this.newFileName(),this.newFileText());
   	this.Reload();
   }
 

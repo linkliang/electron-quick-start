@@ -1,11 +1,11 @@
 import {FileModel} from '../components/files/file-model'
 import * as ko from 'knockout'
-import * as fs from 'fs'
+const fs = require('fs')
 import * as path from 'path'
 export class FilesController {
 	public filelist : FileModel[];
 	public location : string;
-	public constructor(params){
+	public constructor(params: any){
 		try{
 			this.location = params;
 			this.filelist = new Array();
@@ -20,7 +20,7 @@ export class FilesController {
 		this.filelist = new Array();
 		try{
 			let files = fs.readdirSync(this.location);
-			files.forEach(file => {
+			files.forEach((file: any) => {
 				let filename = file;
 				let filestats = fs.statSync(path.join(this.location,file));
 				this.filelist.push(new FileModel([filename, filestats.size, filestats.mtime]));
@@ -35,14 +35,14 @@ export class FilesController {
 		return this.filelist;
 	}
 
-	public createNewFile(filename:string, filetext:string){
-		fs.writeFileSync(path.join(this.location,filename),filetext);
+	public createNewFile(projectId:string, filename:string, filetext:string){
+		fs.writeFileSync(path.join(this.location,projectId,filename),filetext);
 	}
 
-	public deleteFile(files:FileModel[]){
+	public deleteFile(files:FileModel[],projectId:string){
 		files.forEach(file => {
 			try{
-				fs.unlinkSync(path.join(this.location,file.fileName));
+				fs.unlinkSync(path.join(this.location,projectId,file.fileName));
 			}
 			catch(e){
 				console.log(e);
