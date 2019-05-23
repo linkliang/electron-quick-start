@@ -18,15 +18,15 @@ export class FileSyncer{
 	}
 
 	public Sync(){
-		this.ReadProjectList();
+		this.RequestProjectList();
 	}
 
-	public ReadProjectList(){
+	public RequestProjectList(){
 		// read project list
 		this.QuantConnectApi.ListProjects((response: ProjectsResponse) => {
 			// success
 			// request each project
-			response.projects.forEach((project: Project) => this.ReadProject(project));
+			response.projects.forEach((project: Project) => this.RequestProject(project));
 		},
 		(response: ResponseBase) => {
 			// fail
@@ -34,7 +34,7 @@ export class FileSyncer{
 		});
 	}
 
-	public ReadProject(project: Project){
+	public RequestProject(project: Project){
 		// create project folder if does not exist.
 		this.QuantConnectApi.ReadProjectFiles(project.projectId, (response: ProjectFilesResponse) => {
 			// success
