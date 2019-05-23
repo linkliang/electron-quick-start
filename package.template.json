@@ -33,7 +33,7 @@
     },
     "win": {
     "target": "NSIS",
-    "artifactName": "${productName}v${version}.${ext}",
+    "artifactName": "${productName}_v${version}.${ext}",
     "icon": "images/icon.png",
     "publish": {
       "provider": "s3",
@@ -48,7 +48,7 @@
         "dmg",
         "zip"
       ],
-      "artifactName": "${productName}v${version}.${ext}",
+      "artifactName": "${productName}_v${version}.${ext}",
       "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
@@ -60,7 +60,7 @@
     },
     "linux": {
       "target": "AppImage",
-      "artifactName": "${productName}v${version}.${ext}",
+      "artifactName": "${productName}_v${version}.${ext}",
       "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
