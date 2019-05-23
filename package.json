@@ -1,15 +1,18 @@
 {
-  "name": "electron-quick-start",
-  "version": "0.0.0",
+  "name": "electron",
+  "version": "0.0.4",
   "description": "packaging&auto-update",
   "main": "main.js",
+  "config": {
+    "branch" : "master"
+  },
   "scripts": {
     "start": "electron .",
     "build": "build",
     "publish-win": "build --win --publish always",
     "publish-mac": "build --mac --publish always",
     "publish-linux": "build --linux --publish always",
-    "publish": "build --win --mac --linux --publish always"
+    "publish": "build --win --mac --linux --publish always",
   },
   "keywords": [
     "Electron",
@@ -35,10 +38,10 @@
     "icon": "images/icon.png",
     "publish": {
       "provider": "s3",
-      "bucket": "qc-electron-test",
+      "bucket": "skylight.quantconnect.com",
       "acl": "public-read",
-      "region": "us-west-1",
-      "path": "/win"
+      "region": "us-east-1",
+      "path": "${branch_name}/win"
     }
     },
     "mac": {
@@ -52,7 +55,7 @@
         "bucket": "skylight.quantconnect.com",
         "acl": "public-read",
         "region": "us-east-1",
-        "path": "/mac"
+        "path": "${branch_name}/mac"
       }
     },
     "linux": {
@@ -60,10 +63,10 @@
       "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
-        "bucket": "qc-electron-test",
+        "bucket": "skylight.quantconnect.com",
         "acl": "public-read",
-        "region": "us-west-1",
-        "path": "/linux"
+        "region": "us-east-1",
+        "path": "${branch_name}/linux"
       }
     }
   },

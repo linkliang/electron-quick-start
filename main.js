@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, Menu, BrowserWindow, Tray} = require('electron')
 const {autoUpdater} = require("electron-updater")
+const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -45,7 +46,7 @@ function createVersionWindow () {
   mainWindow.loadFile('src/version.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -59,7 +60,8 @@ function createVersionWindow () {
 let tray
 // Tray icon&Menu
 function createTray(){
-  tray = new Tray('images/tray.png')
+  const iconPath = path.join(__dirname, 'images/tray.png')
+  tray = new Tray(iconPath)
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Filesync', click: () => {
       createWindow()
