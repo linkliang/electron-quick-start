@@ -17,10 +17,10 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('src/files.html')
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -31,40 +31,68 @@ function createWindow () {
   })
 }
 
+function createVersionWindow () {
+  // Create the browser window.
+  mainWindow = new BrowserWindow({
+    width: 400,
+    height: 300,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+
+  // and load the index.html of the app.
+  mainWindow.loadFile('src/version.html')
+
+  // Open the DevTools.
+  mainWindow.webContents.openDevTools()
+
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+  })
+}
+
+let tray
 // Tray icon&Menu
-/*
-let tray = null
-app.on('ready', () => {
-  tray = new Tray('image/tray.png')
+function createTray(){
+  tray = new Tray('images/tray.png')
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Synchronize'},
+    { label: 'Filesync', click: () => {
+      createWindow()
+    }},
     { label: 'Check for Updates'},
     { label: 'Preferences'},
+    { label: 'Version', click: () =>{
+      createVersionWindow()
+    }},
     { label: 'Quit', click: () => {
       app.quit()
     }}
   ])
   tray.setToolTip('Lean')
   tray.setContextMenu(contextMenu)
-})
-*/
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', function(){
-  createWindow()
+  createTray()
   autoUpdater.checkForUpdates()
 })
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
 })
-
+/*
 app.on('activate', function () {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow()
 })
+*/
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.

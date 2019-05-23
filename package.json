@@ -1,6 +1,6 @@
 {
   "name": "electron-quick-start",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "packaging&auto-update",
   "main": "main.js",
   "scripts": {
@@ -32,7 +32,7 @@
     },
     "win": {
     "target": "NSIS",
-    "icon": "build/icon.png",
+    "icon": "images/icon.png",
     "publish": {
       "provider": "s3",
       "bucket": "qc-electron-test",
@@ -46,7 +46,7 @@
         "dmg",
         "zip"
       ],
-      "icon": "build/icon.png",
+      "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
         "bucket": "skylight.quantconnect.com",
@@ -57,7 +57,7 @@
     },
     "linux": {
       "target": "AppImage",
-      "icon": "build/icon.png",
+      "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
         "bucket": "qc-electron-test",
