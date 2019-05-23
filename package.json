@@ -12,7 +12,7 @@
     "publish-win": "build --win --publish always",
     "publish-mac": "build --mac --publish always",
     "publish-linux": "build --linux --publish always",
-    "publish": "build --win --mac --linux --publish always",
+    "publish": "build --win --mac --linux --publish always"
   },
   "keywords": [
     "Electron",
@@ -41,7 +41,7 @@
       "bucket": "skylight.quantconnect.com",
       "acl": "public-read",
       "region": "us-east-1",
-      "path": "${branch_name}/win"
+      "path": "main/win"
     }
     },
     "mac": {
@@ -55,7 +55,7 @@
         "bucket": "skylight.quantconnect.com",
         "acl": "public-read",
         "region": "us-east-1",
-        "path": "${branch_name}/mac"
+        "path": "main/mac"
       }
     },
     "linux": {
@@ -66,7 +66,7 @@
         "bucket": "skylight.quantconnect.com",
         "acl": "public-read",
         "region": "us-east-1",
-        "path": "${branch_name}/linux"
+        "path": "main/linux"
       }
     }
   },
