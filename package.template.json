@@ -27,12 +27,13 @@
   "build": {
     "appId": "com.quantconnect.leanux",
     "copyright": "Copyright © 2019 QuantConnect",
-    "productName": "Skylight_v${version}",
+    "productName": "Skylight",
     "directories": {
       "output": "release"
     },
     "win": {
     "target": "NSIS",
+    "artifactName": "${productName}v${version}.${ext}",
     "icon": "images/icon.png",
     "publish": {
       "provider": "s3",
@@ -40,13 +41,14 @@
       "acl": "public-read",
       "region": "us-east-1",
       "path": "{{branch_name}}/win"
-    }
+      }
     },
     "mac": {
       "target": [
         "dmg",
         "zip"
       ],
+      "artifactName": "${productName}v${version}.${ext}",
       "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
@@ -58,6 +60,7 @@
     },
     "linux": {
       "target": "AppImage",
+      "artifactName": "${productName}v${version}.${ext}",
       "icon": "images/icon.png",
       "publish": {
         "provider": "s3",
