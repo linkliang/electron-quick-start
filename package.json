@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "description": "packaging&auto-update",
   "main": "main.js",
-    "scripts": {
+  "scripts": {
     "start": "electron .",
     "build": "build",
     "publish-win": "build --win --publish always",
@@ -31,15 +31,16 @@
       "output": "release"
     },
     "win": {
-    "target": "NSIS",
-    "icon": "images/icon.png",
-    "publish": {
-      "provider": "s3",
-      "bucket": "skylight.quantconnect.com",
-      "acl": "public-read",
-      "region": "us-east-1",
-      "path": "{{branch_name}}/win"
-    }
+      "target": "NSIS",
+      "icon": "images/icon.png",
+      "certificateSubjectName": "QuantConnect",
+      "publish": {
+        "provider": "s3",
+        "bucket": "skylight.quantconnect.com",
+        "acl": "public-read",
+        "region": "us-east-1",
+        "path": "{{branch_name}}/win"
+      }
     },
     "mac": {
       "target": [
