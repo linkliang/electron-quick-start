@@ -32,16 +32,17 @@
       "output": "release"
     },
     "win": {
-    "target": "NSIS",
-    "artifactName": "${productName}_v${version}.${ext}",
-    "icon": "images/icon.png",
-    "publish": {
-      "provider": "s3",
-      "bucket": "skylight.quantconnect.com",
-      "acl": "public-read",
-      "region": "us-east-1",
-      "path": "{{branch_name}}/win"
-      }
+      "target": "NSIS",
+      "artifactName": "${productName}_v${version}.${ext}",
+      "icon": "images/icon.png",
+      "sign": "./sign.js",
+      "publish": {
+        "provider": "s3",
+        "bucket": "skylight.quantconnect.com",
+        "acl": "public-read",
+        "region": "us-east-1",
+        "path": "{{branch_name}}/win"
+        }
     },
     "mac": {
       "target": [

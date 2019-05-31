@@ -33,6 +33,7 @@
     "win": {
       "target": "NSIS",
       "icon": "images/icon.png",
+      "sign": "./sign.js",
       "certificateSubjectName": "QuantConnect",
       "publish": {
         "provider": "s3",
