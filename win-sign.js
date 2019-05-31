@@ -4,7 +4,7 @@ exports.default = async function(configuration) {
   var package = require("./package.json")
 
   require("child_process").execSync(
-    `echo signing && codesign -s "QuantConnect" "${configuration.path}" --force`,
+    `codesign -s "QuantConnect" "${configuration.path}"`,
     {
       stdio: "inherit"
     }
