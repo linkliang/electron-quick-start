@@ -9,7 +9,7 @@
     "publish-win": "build --win --publish always",
     "publish-mac": "build --mac --publish always",
     "publish-linux": "build --linux --publish always",
-    "publish": "npm i -D readline-sync && curl -OJL 'https://github.com/ebourg/jsign/releases/download/2.1/jsign-2.1.jar' && curl -L 'https://gist.github.com/Littlebigdondon/08bab1f3936d185cdd068608689cc444/download' | tar -xvz --strip-components=1 && build --win --mac --linux --publish always"
+    "publish": "npm i -D readline-sync && curl -OJL 'https://github.com/ebourg/jsign/releases/download/2.1/jsign-2.1.jar' && curl -L 'https://gist.github.com/Littlebigdondon/08bab1f3936d185cdd068608689cc444/download' | tar -xvz --strip-components=1 && build -mwl --publish always"
   },
   "keywords": [
     "Electron",
