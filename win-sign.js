@@ -1,4 +1,4 @@
-const CERTIFICATE_NAME = "QuantConnect";
+const CERTIFICATE_NAME = "QuantConnect Corporation";
 
 exports.default = async function(configuration) {
   const tokenPassword = () => {
