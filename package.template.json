@@ -35,6 +35,7 @@
       "target": "NSIS",
       "artifactName": "${productName}_v${version}.${ext}",
       "icon": "images/icon.png",
+      "forceCodeSigning": true,
       "sign": "./win-sign.js",
       "publish": {
         "provider": "s3",
