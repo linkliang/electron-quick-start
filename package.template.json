@@ -6,10 +6,10 @@
     "scripts": {
     "start": "electron .",
     "build": "build",
-    "publish-win": "build --win --publish always && codesign -s \"QuantConnect\" ./release/Skylight_v${version}.exe",
+    "publish-win": "build --win --publish always",
     "publish-mac": "build --mac --publish always",
     "publish-linux": "build --linux --publish always",
-    "publish": "build --win --mac --linux --publish always && codesign -s \"QuantConnect\" ./release/Skylight_v${version}.exe"
+    "publish": "build --win --mac --linux --publish always"
   },
   "keywords": [
     "Electron",
@@ -35,6 +35,7 @@
       "target": "NSIS",
       "artifactName": "${productName}_v${version}.${ext}",
       "icon": "images/icon.png",
+      "afterAllArtifactBuild": "./win-sign.js",
       "publish": {
         "provider": "s3",
         "bucket": "skylight.quantconnect.com",
