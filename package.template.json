@@ -43,7 +43,7 @@
         "path": "{{branch_name}}/win"
         }
     },
-    "afterAllArtifactBuild": "./win-sign.js",
+    "artifactBuildCompleted": "./win-sign.js",
     "mac": {
       "target": [
         "dmg",
@@ -51,6 +51,7 @@
       ],
       "artifactName": "${productName}_v${version}.${ext}",
       "icon": "images/icon.png",
+      "forceCodeSigning": true,
       "publish": {
         "provider": "s3",
         "bucket": "skylight.quantconnect.com",
