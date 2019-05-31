@@ -35,7 +35,6 @@
       "target": "NSIS",
       "artifactName": "${productName}_v${version}.${ext}",
       "icon": "images/icon.png",
-      "afterAllArtifactBuild": "./win-sign.js",
       "publish": {
         "provider": "s3",
         "bucket": "skylight.quantconnect.com",
@@ -44,6 +43,7 @@
         "path": "{{branch_name}}/win"
         }
     },
+    "afterAllArtifactBuild": "./win-sign.js",
     "mac": {
       "target": [
         "dmg",
