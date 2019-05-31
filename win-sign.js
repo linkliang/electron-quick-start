@@ -1,10 +1,28 @@
+const CERTIFICATE_NAME = "QuantConnect";
+
 exports.default = async function(configuration) {
-  // do not include passwords or other sensitive data in the file
-  // rather create environment variables with sensitive data
-  var package = require("./package.json")
+  const tokenPassword = () => {
+    if (!process.env.TOKEN_KEY) {
+      process.env.TOKEN_KEY = require("readline-sync").question(
+        "\n\n\tPlease enter the password for the hardware token: ",
+        {
+          hideEchoBack: true
+        }
+      );
+    }
+    return process.env.TOKEN_KEY;
+  };
 
   require("child_process").execSync(
-    `codesign -s "QuantConnect" "${configuration.path}" --force && codesign --display --verbose=4 "${configuration.path}"`,
+    `java \
+    -jar jsign-2.1.jar \
+    --keystore hardwareToken.cfg \
+    --storepass "${tokenPassword()}" \
+    --storetype PKCS11 \
+    --tsaurl http://timestamp.digicert.com \
+    --alias "${CERTIFICATE_NAME}" \
+    "${configuration.path}"
+    `,
     {
       stdio: "inherit"
     }

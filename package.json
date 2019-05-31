@@ -22,7 +22,8 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^5.0.0",
-    "electron-builder": "^20.39.0"
+    "electron-builder": "^20.39.0",
+    "readline-sync": "^1.4.9"
   },
   "build": {
     "appId": "com.quantconnect.leanux",
